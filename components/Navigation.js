@@ -33,7 +33,7 @@ const TabOptions = {
 const DeckStack = createStackNavigator();
 function DeckStackScreen() {
   return (
-    <DeckStack.Navigator initialRouteName="Home" >
+    <DeckStack.Navigator initialRouteName="Home">
       <DeckStack.Screen name="Home" component={DeckList} />
       <DeckStack.Screen name="Deck" component={Deck} />
       <DeckStack.Screen name="Quiz" component={Quiz} />
@@ -51,11 +51,14 @@ function AddStackScreen() {
   );
 }
 
-
 class Navigation extends Component {
   render() {
     return (
-      <Tab.Navigator initialRouteName="Home">
+      <Tab.Navigator initialRouteName="Home"
+        barStyle={{
+          backgroundColor: "#4A148C"
+        }}
+      >
         <Tab.Screen name="Home"
           component={DeckStackScreen}
           options={TabOptions.Home}
