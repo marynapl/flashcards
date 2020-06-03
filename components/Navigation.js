@@ -57,7 +57,7 @@ function DeckStackScreen({ navigation }) {
       <DeckStack.Screen name="Home" options={{headerTitle: "Study Cards"}} component={DeckList} />
       <DeckStack.Screen name="Deck" options={{headerTitle: "Get Started"}} component={Deck} />
       <DeckStack.Screen name="Quiz" component={Quiz} />
-      <DeckStack.Screen name="Add Card" component={AddCard} />
+      <DeckStack.Screen name="AddCard" options={{headerTitle: "Add Card"}} component={AddCard} />
     </DeckStack.Navigator>
   );
 }

@@ -3,7 +3,7 @@ import { View, Text, TextInput } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { connect } from 'react-redux'
 import { addDeck } from '../actions'
-import { styles } from '../utils/styles'
+import { styles as commonStyles } from '../utils/styles'
 
 class AddDeck extends Component {
   state = {
@@ -26,27 +26,28 @@ class AddDeck extends Component {
     );
 
     this.setState({
-      text: ""
+      text: ''
     })
 
     // TODO: AsyncStorage
 
-    this.props.navigation.navigate('Home')
+    this.props.navigation.navigate('DeckStackScreen');
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>What is the title of your deck?</Text>
+      <View style={commonStyles.container}>
+        <Text style={commonStyles.title}>What is the title of your deck?</Text>
         <TextInput
-          style={styles.input}
+          style={commonStyles.input}
           onChangeText={this.handleChange}
           value={this.state.text}
+          placeholder="Enter deck title here"
         />
         <TouchableOpacity
-          style={styles.button}
+          style={commonStyles.button}
           onPress={this.submit}
         >
-          <Text style={styles.buttonText}>Create new Deck</Text>
+          <Text style={commonStyles.buttonText}>Create new Deck</Text>
         </TouchableOpacity>
       </View>
     )

@@ -15,7 +15,7 @@ function DeckListItem({ item, navigation }) {
       })}
     >
       <View style={styles.item}>
-        <Text style={styles.itemIitle}>{item.title}</Text>
+        <Text style={styles.itemTitle}>{item.title}</Text>
         <View style={styles.itemDetails}>
           <Text>{count}</Text>
           <Text style={{ color: "#888", fontSize: 12 }}>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#eee",
     borderBottomWidth: 1
   },
-  itemIitle: {
+  itemTitle: {
     fontSize: 16,
     color: "#4A148C"
   },

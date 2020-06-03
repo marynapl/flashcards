@@ -14,7 +14,7 @@ class Deck extends Component {
     return (
       <View style={commonStyles.container}>
         <Text style={commonStyles.title}>{deck.title}</Text>
-        <Text style={styles.text}>
+        <Text style={commonStyles.subTitle}>
           {deck.questions.length} {count == 1 ? "card" : "cards"}
         </Text>
         <TouchableOpacity
@@ -25,7 +25,9 @@ class Deck extends Component {
         </TouchableOpacity>
         <TouchableOpacity
           style={commonStyles.buttonHollow}
-          onPress={() => this.props.navigation.navigate('AddCard')}
+          onPress={() => this.props.navigation.navigate('AddCard', {
+            title: deck.title
+          })}
         >
           <Text style={commonStyles.buttonHollowText}>Add Card</Text>
         </TouchableOpacity>
@@ -33,15 +35,6 @@ class Deck extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 15,
-    color: "#888",
-    textAlign: "center",
-    marginBottom: 30
-  }
-});
 
 function mapStateToProps(decks, props){
   const { title } = props.route.params
