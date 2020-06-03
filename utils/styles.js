@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 15,
-    paddingVertical: 30,
+    paddingVertical: 60,
     backgroundColor: "#fff"
   },
   title: {
@@ -31,6 +31,28 @@ export const styles = StyleSheet.create({
     height: 45,
     borderRadius: 2,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    alignSelf: "center",
+    minWidth: 250,
+    marginBottom: 16
+  },
+  buttonHollowText: {
+    textAlign: "center",
+    color: "#6A1B9A"
+  },
+  buttonHollow: {
+    backgroundColor: "#fff",
+    borderColor: "#6A1B9A",
+    borderWidth: 1,
+    padding: 10,
+    paddingLeft: 30,
+    paddingRight: 30,
+    height: 45,
+    borderRadius: 2,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    minWidth: 250,
+    marginBottom: 16
   }
 });

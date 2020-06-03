@@ -30,14 +30,34 @@ const TabOptions = {
   }
 }
 
+const ScreenOptions = {
+  headerTitleAlign: "center",
+  headerBackTitle: "Back",
+  headerBackTitleStyle: {
+    color: "#6A1B9A"
+  },
+  headerTintColor: "#6A1B9A",
+  headerTitleStyle: {
+    color: 'black'
+  }
+}
+
 const DeckStack = createStackNavigator();
-function DeckStackScreen() {
+function DeckStackScreen({ navigation }) {
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('tabPress', e => {
+      // Navigate to the top of the Deck Stack
+      navigation.navigate({ name: "Home" });
+    });
+    return unsubscribe;
+  }, [navigation]);
   return (
-    <DeckStack.Navigator initialRouteName="Home">
-      <DeckStack.Screen name="Home" component={DeckList} />
-      <DeckStack.Screen name="Deck" component={Deck} />
+    <DeckStack.Navigator initialRouteName="Home" 
+      screenOptions={ScreenOptions}>
+      <DeckStack.Screen name="Home" options={{headerTitle: "Study Cards"}} component={DeckList} />
+      <DeckStack.Screen name="Deck" options={{headerTitle: "Get Started"}} component={Deck} />
       <DeckStack.Screen name="Quiz" component={Quiz} />
-      <DeckStack.Screen name="AddCard" component={AddCard} />
+      <DeckStack.Screen name="Add Card" component={AddCard} />
     </DeckStack.Navigator>
   );
 }
@@ -45,8 +65,9 @@ function DeckStackScreen() {
 const AddStack = createStackNavigator();
 function AddStackScreen() {
   return (
-    <AddStack.Navigator>
-      <AddStack.Screen name="Add deck" component={AddDeck} />
+    <AddStack.Navigator
+      screenOptions={ScreenOptions}>
+      <AddStack.Screen name="Add Deck" component={AddDeck} />
     </AddStack.Navigator>
   );
 }

@@ -9,13 +9,18 @@ function DeckListItem({ item, navigation }) {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('Deck')}
+      onPress={() => navigation.navigate('Deck',
+      {
+        title: item.title
+      })}
     >
       <View style={styles.item}>
         <Text style={styles.itemIitle}>{item.title}</Text>
         <View style={styles.itemDetails}>
           <Text>{count}</Text>
-          <Text style={{ color: "#888", fontSize: 12 }}>{count > 1 ? "cards" : "card"}</Text>
+          <Text style={{ color: "#888", fontSize: 12 }}>
+            {count == 1 ? "card" : "cards"}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
