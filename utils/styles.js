@@ -61,5 +61,23 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
     minWidth: 250,
     marginBottom: 16
+  },
+  buttonClearText: {
+    textAlign: "center",
+    color: "#6A1B9A"
+  },
+  buttonClearIcon: {
+    color: "#6A1B9A",
+    marginRight: 5
+  },
+  buttonClear: {
+    padding: 10,
+    paddingLeft: 30,
+    paddingRight: 30,
+    height: 45,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    flexDirection: "row"
   }
 });

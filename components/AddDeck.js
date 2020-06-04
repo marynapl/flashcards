@@ -31,7 +31,8 @@ class AddDeck extends Component {
 
     // TODO: AsyncStorage
 
-    this.props.navigation.navigate('DeckStackScreen');
+    // TODO: reset Deck stack
+    this.props.navigation.navigate('Home');
   }
   render() {
     return (

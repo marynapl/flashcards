@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { styles as commonStyles } from '../utils/styles'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -17,12 +17,16 @@ class Deck extends Component {
         <Text style={commonStyles.subTitle}>
           {deck.questions.length} {count == 1 ? "card" : "cards"}
         </Text>
-        <TouchableOpacity
-          style={commonStyles.button}
-          onPress={() => this.props.navigation.navigate('Quiz')}
-        >
-          <Text style={commonStyles.buttonText}>Start Quiz</Text>
-        </TouchableOpacity>
+        {count > 0 &&
+          <TouchableOpacity
+            style={commonStyles.button}
+            onPress={() => this.props.navigation.navigate('Quiz', {
+              title: deck.title
+            })}
+          >
+            <Text style={commonStyles.buttonText}>Start Quiz</Text>
+          </TouchableOpacity>
+        }
         <TouchableOpacity
           style={commonStyles.buttonHollow}
           onPress={() => this.props.navigation.navigate('AddCard', {
