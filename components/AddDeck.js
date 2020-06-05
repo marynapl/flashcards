@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { connect } from 'react-redux'
 import { addDeck } from '../actions'
 import { styles as commonStyles } from '../utils/styles'
+import { CommonActions } from '@react-navigation/native'
 
 class AddDeck extends Component {
   state = {
@@ -30,9 +31,17 @@ class AddDeck extends Component {
     })
 
     // TODO: AsyncStorage
-
-    // TODO: reset Deck stack
-    this.props.navigation.navigate('Home');
+  
+    // Reset navigation and go Home
+    this.props.navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          { name: 'Home' }
+        ]
+      })
+    )
+    this.props.navigation.navigate('Home')
   }
   render() {
     return (

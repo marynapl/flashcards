@@ -79,6 +79,9 @@ class Navigation extends Component {
         barStyle={{
           backgroundColor: "#4A148C"
         }}
+        tabBarOptions={{
+          activeTintColor: "#4A148C"
+        }}
       >
         <Tab.Screen name="Home"
           component={DeckStackScreen}
