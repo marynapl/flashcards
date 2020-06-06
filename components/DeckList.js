@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, FlatList, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import { fetchData } from '../utils/api'
+import { getDecks } from '../utils/api'
 import { receiveData } from '../actions'
 import { ActivityIndicator } from 'react-native-paper'
 import  DeckListItem from './DeckListItem'
@@ -13,7 +13,7 @@ class DeckList extends Component {
   componentDidMount() {
     const { dispatch } = this.props
 
-    fetchData()
+    getDecks()
       .then((decks) => dispatch(receiveData(decks)))
       .then(() => {
         this.setState(() => ({

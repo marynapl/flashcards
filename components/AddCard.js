@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { connect } from 'react-redux'
 import { addCard } from '../actions'
 import { styles as commonStyles } from '../utils/styles'
+import { saveCard } from '../utils/api'
 
 class AddCard extends Component {
   state = {
@@ -35,7 +36,7 @@ class AddCard extends Component {
       answer: ''
     })
 
-    // TODO: AsyncStorage
+    saveCard({ card, key: title })
 
     this.props.navigation.pop();
   }

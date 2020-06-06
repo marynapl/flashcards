@@ -4,11 +4,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { connect } from 'react-redux'
 import { addDeck } from '../actions'
 import { styles as commonStyles } from '../utils/styles'
-import { CommonActions } from '@react-navigation/native'
+import { saveDeck } from '../utils/api'
 
 class AddDeck extends Component {
   state = {
-     text: ''
+    text: ''
   }
   handleChange = (text) => {
     this.setState({
@@ -17,31 +17,35 @@ class AddDeck extends Component {
   }
   submit = () => {
     const key = this.state.text
+    const deck = {
+      title: key,
+      questions: []
+    }
+
     this.props.dispatch(
       addDeck({
-        [key]: {
-          title: key,
-          questions: []
-        }
+        [key]: deck
       })
-    );
+    )
 
     this.setState({
       text: ''
     })
 
-    // TODO: AsyncStorage
-  
-    // Reset navigation and go Home
-    this.props.navigation.dispatch(
-      CommonActions.reset({
-        index: 0,
-        routes: [
-          { name: 'Home' }
-        ]
-      })
-    )
-    this.props.navigation.navigate('Home')
+    saveDeck({ deck, key })
+
+    this.props.navigation.navigate('Deck', { title: key })
+
+    // Example: Reset navigation and go Home
+    // this.props.navigation.dispatch(
+    //   CommonActions.reset({
+    //     index: 0,
+    //     routes: [
+    //       { name: 'Home' }
+    //     ]
+    //   })
+    // )
+    // this.props.navigation.navigate('Home')
   }
   render() {
     return (
@@ -55,8 +59,7 @@ class AddDeck extends Component {
         />
         <TouchableOpacity
           style={commonStyles.button}
-          onPress={this.submit}
-        >
+          onPress={this.submit}>
           <Text style={commonStyles.buttonText}>Create new Deck</Text>
         </TouchableOpacity>
       </View>
