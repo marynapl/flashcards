@@ -2,21 +2,21 @@ export const RECEIVE_DATA = 'RECEIVE_DATA'
 export const ADD_DECK = 'ADD_DECK'
 export const ADD_CARD = 'ADD_CARD'
 
-export function receiveData (decks) {
+export function receiveData(decks) {
   return {
     type: RECEIVE_DATA,
     decks
   }
 }
 
-export function addDeck (deck) {
+export function addDeck(deck) {
   return {
     type: ADD_DECK,
     deck
   }
 }
 
-export function addCard ({ title, card }) {
+export function addCard({ title, card }) {
   return {
     type: ADD_CARD,
     title,

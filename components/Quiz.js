@@ -3,9 +3,9 @@ import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { styles as commonStyles } from '../utils/styles'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { MaterialIcons } from '@expo/vector-icons'
 import Card from './Card'
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
 
 class Quiz extends Component {
   state = {
@@ -30,6 +30,10 @@ class Quiz extends Component {
       this.setState({
         finished: true
       })
+
+      // Clear local notification
+      clearLocalNotification()
+      .then(setLocalNotification)
     }
   }
   reset = () => {

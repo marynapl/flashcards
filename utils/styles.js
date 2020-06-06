@@ -20,8 +20,8 @@ export const styles = StyleSheet.create({
     marginBottom: 30
   },
   input: {
-    height: 40, 
-    borderColor: 'gray', 
+    height: 40,
+    borderColor: 'gray',
     borderWidth: 1,
     marginBottom: 16,
     paddingHorizontal: 15

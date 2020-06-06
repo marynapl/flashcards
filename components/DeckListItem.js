@@ -10,9 +10,9 @@ function DeckListItem({ item, navigation }) {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('Deck',
-      {
-        title: item.title
-      })}
+        {
+          title: item.title
+        })}
     >
       <View style={styles.item}>
         <Text style={styles.itemTitle}>{item.title}</Text>

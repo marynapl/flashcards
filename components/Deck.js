@@ -40,7 +40,7 @@ class Deck extends Component {
   }
 }
 
-function mapStateToProps(decks, props){
+function mapStateToProps(decks, props) {
   const { title } = props.route.params
   const deck = decks[title]
   return {

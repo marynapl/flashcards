@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { getDecks } from '../utils/api'
 import { receiveData } from '../actions'
 import { ActivityIndicator } from 'react-native-paper'
-import  DeckListItem from './DeckListItem'
+import DeckListItem from './DeckListItem'
 
 class DeckList extends Component {
   state = {
@@ -24,8 +24,6 @@ class DeckList extends Component {
   render() {
     const { decks } = this.props
     const { ready } = this.state
-
-    // console.log("Decks: ", decks)
 
     if (ready === false) {
       return (
